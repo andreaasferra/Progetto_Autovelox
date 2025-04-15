@@ -60,10 +60,13 @@ public class TesterAutovelox {
 
         private String avviaRichiesta(String richiesta) {
 
+            
+
             String[] elementi = richiesta.split(" ");
             if (elementi.length != 2) {
-                return "Errore: richiesta non valida. Usa il formato 'get <comune>' oppure 'get <provincia>'.";
+                return "Errore: richiesta non valida. Usa l'identificatore assegnato all'autovelox con il formato 'get' .";
             }
+    
 
             String comando = elementi[0].toLowerCase();
             String parametro = elementi[1];
@@ -80,7 +83,7 @@ public class TesterAutovelox {
             // Cerca l'autovelox nel comune o nella provincia
             for (Autovelox autovelox : TesterAutovelox.autoveloxList) {
                 // Supponiamo che il parametro sia un comune o una provincia
-                if (autovelox.getComune().equalsIgnoreCase(parametro) || autovelox.getProvincia().equalsIgnoreCase(parametro)) {
+                if (autovelox.getIdentificatore().equalsIgnoreCase(parametro)) {
                     return autovelox.toString();
                 }
             }

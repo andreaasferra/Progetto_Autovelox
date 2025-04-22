@@ -75,7 +75,7 @@ public class TesterAutovelox {
                     if (elementi.length < 3) return "Errore: specificare il nome della colonna.";
                     return getColonna(elementi[2]);
                 case "completo":
-                    return getTutto();
+                    return getCompleto();
                 default:
                     return "Errore: opzione non valida. Usa 'riga', 'colonna' o 'completo'.";
             }
@@ -115,7 +115,7 @@ public class TesterAutovelox {
             return result.toString();
         }
 
-        private String getTutto() {
+        private String getCompleto() {
             StringBuilder result = new StringBuilder();
             for (String[] riga : csvContent) {
                 result.append(String.join(" | ", riga)).append("\n");

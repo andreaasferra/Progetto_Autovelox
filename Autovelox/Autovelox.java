@@ -1,90 +1,31 @@
 public class Autovelox {
-    private String comune;
-    private String provincia;
-    private String regione;
-    private String nome;
-    private String anno;
-    private String data;
-    private String identificatore;
-    private double latitudine;
-    private double longitudine;
-   
+private String comune, provincia, regione, nome;
+    private String annoInserimento, dataEOra, identificatore, latitudine, longitudine;
 
-    
-    public Autovelox(String comune, String provincia, String regione, String nome, String anno, String data, String identificatore, double latitudine, double longitudine) {
-        this.comune = comune;
-        this.provincia = provincia;
-        this.regione = regione;
-        this.nome = nome;
-        this.anno = anno;
-        this.data = data;
-        this.identificatore = identificatore;
-        this.latitudine = latitudine;
-        this.longitudine = longitudine;
-       
-    }
-    // Getter e setter
-    public String getComune() {
-        return comune;
-    }
-    public void setComune(String comune) {
-        this.comune = comune;
-    }   
-
-    public String getProvincia() {
-        return provincia;
-    }
-    public void setProvincia(String provincia) {
-        this.provincia = provincia;
+    public Autovelox(String[] campi) {
+        this.comune = campi[0];
+        this.provincia = campi[1];
+        this.regione = campi[2];
+        this.nome = campi[3];
+        this.annoInserimento = campi[4];
+        this.dataEOra = campi[5];
+        this.identificatore = campi[6];
+        this.latitudine = campi[7];
+        this.longitudine = campi[8];
     }
 
-    public String getRegione() {
-        return regione;
+    public String[] toArray() {
+        return new String[]{comune, provincia, regione, nome, annoInserimento, dataEOra, identificatore, latitudine, longitudine};
     }
-    public void setRegione(String regione) {
-        this.regione = regione;
-    }
-    public String getNome() {
-        return nome;
-    }
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-    public String getAnno() {
-        return anno;
-    }
-    public void setAnno(String anno) {
-        this.anno = anno;
-    }
-    public String getData() {
-        return data;
-    }
-    public void setData(String data) {
-        this.data = data;
-    }
-    public String getIdentificatore() {
-        return identificatore;
-    }
-    public void setIdentificatore(String identificatore) {
-        this.identificatore = identificatore;
-    }
-    public double getLatitudine() {
-        return latitudine;
-    }
-    public void setLatitudine(double latitudine) {
-        this.latitudine = latitudine;
-    }
-    public double getLongitudine() {
-        return longitudine;
-    }
-    public void setLongitudine(double longitudine) {
-        this.longitudine = longitudine;
-    }
+
     @Override
     public String toString() {
-        return "Autovelox [\nComune=" + comune + "\n, Provincia=" + provincia + "\n, Regione: "+ regione +
-                "\n, Latitudine=" + latitudine + "\n, Longitudine=" + longitudine +
-                "\n, Nome=" + nome + "\n, Anno=" + anno + "\n, Data=" + data +
-                "\n, Identificatore=" + identificatore + "]";
+        return String.format("%-15s %-10s %-10s %-15s %-15s %-20s %-15s %-10s %-10s",
+            comune, provincia, regione, nome, annoInserimento, dataEOra, identificatore, latitudine, longitudine);
+    }
+
+    public static String header() {
+        return String.format("%-15s %-10s %-10s %-15s %-15s %-20s %-15s %-10s %-10s",
+            "COMUNE", "PROVINCIA", "REGIONE", "NOME", "ANNO_INS", "DATA_ORA", "ID", "LAT", "LON");
     }
 }

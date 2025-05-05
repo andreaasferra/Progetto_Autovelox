@@ -1,23 +1,20 @@
 # Progetto_Autovelox
 Introduzione del codice:
 
-Questo progetto implementa un'applicazione client-server basata su socket che consente a uno o più utenti di accedere a informazioni contenute in un file CSV. I dati del CSV vengono caricati in una lista di oggetti, rendendo più efficiente e strutturato l'accesso alle informazioni.
+Questo progetto consiste nell'estrapolare le informazioni di un file CSV, corrispondenti a tutti gli autovelox presenti in Italia, in una struttura dati.
+La struttura dati da me scelta è un ArrayList ed il motivo di questa scelta sono state le proprietà di essa, tra queste l'aumentare della memoria che a sua volta si estende mano a mano che vengono inserite le informazioni, rendendo una scelta flessibile nel caso in cui volessi caricare piu informazioni come in questo file CSV;
 
--Gli utenti, attraverso l'interfaccia client, possono:
+Nel progetto, il server gestisce le richieste dei client attraverso una connessione TCP stabilita mediante Socket, ovvero una combinazione tra indirizzo IP e porta, che permette di stabilire la connessione tra client e server. 
+Dopo che la connessione è stabilita, client e server possono scambiarsi messaggi attraverso il socket ed il protocollo TCP garantisce che tutti i dati inviati dal client vengano ricevuti correttamente dal server (e viceversa).
 
--Richiedere una riga specifica del file CSV;
+Avviato il progetto l'utente può decidere se visualizzare tutto il contenuto del file CSV, una sola riga o colonna del file.
+In aggiunta ho scelto di agevolare l'esperienza dell'utente aggiungendo una ricerca tramite il parametro più intuitivo tra tutti quelli presenti nel file, ovvero l'identificatore.
 
--Richiedere una colonna specifica;
+Le istruzioni per avviare l'applicazioni sono semplici e intuitive:
 
--Visualizzare l'intero contenuto del file.
+1. Avviare la classe server in modo da stabilirci una connessione;
+2. Aprire il terminale e scegliere l'indirizzo di localhost (127.0.0.1) e la porta assegnata al server (1050);
+3. Una volta dentro, grazie alla classe client che termina lo sviluppo della trasmissione, all'utente viene proposto un breve "menù" che racchiude le funzionalità dell'applicazione;
+4. Una volta terminato l'uso dell'applicazione digitare 'QUIT' per terminare la connessione tra client e server.
 
-Il client include un'interfaccia grafica intuitiva che facilita l'interazione con il server, rendendo l'esperienza d'uso semplice anche per utenti non tecnici. L’architettura a socket garantisce una comunicazione fluida e scalabile tra client e server, anche in presenza di più utenti contemporaneamente.
-
-Per avviare il progetto l'utente deve:
-
-1.Aprire il terminale e entrare nella cartella dove è contenuto il progetto;
-2.Avviare la classe server; (java Server)
-3.Avviare la classe client sempre nella stessa cartella anche da un'altra finestra; (java Client)
-4.Seguire le istruzioni proposte nell'header del terminale.
-
-Per avviare le classi è FONDAMENTALE compilarle  dal terminale con il comando "javac *.java".
+Nella relazione verranno riportate le classi utilizzate, insieme ai comandi e le gestioni efficenti degli errori di trasmissione.

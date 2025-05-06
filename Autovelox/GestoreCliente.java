@@ -17,7 +17,7 @@ public class GestoreCliente extends Thread {
         try (BufferedReader in = new BufferedReader(new InputStreamReader(client.getInputStream()));
              PrintWriter out = new PrintWriter(client.getOutputStream(), true)) {
 
-            out.println("Benvenuto! Comandi: MOSTRA_TUTTO, RIGA x, COLONNA x (0-8), CERCA_ID <ID>, QUIT");
+            out.println("Benvenuto! Comandi: MOSTRA_TUTTO, RIGA x, COLONNA x (0-8), CERCA_ID <ID>, QUIT, AIUTO");
 
             String input;
             while ((input = in.readLine()) != null) {
@@ -61,9 +61,20 @@ public class GestoreCliente extends Thread {
                     } else {
                         out.println("Formato comando CERCA_ID non valido.");
                     }
+                } else if (input.equalsIgnoreCase("AIUTO")) {
+                    out.println("Comandi disponibili:");
+                    out.println("MOSTRA_TUTTO: Mostra tutti i dati.");
+                    out.println("RIGA x: Mostra i dati della riga x (0-based).");
+                    out.println("COLONNA x: Mostra i dati della colonna x (0-8).");
+                    out.println("CERCA_ID <ID>: Cerca un autovelox con l'ID specificato.");
+                    out.println("QUIT: Termina la connessione.");
+                    out.println("AIUTO: Mostra questo elenco di comandi.");
                 } else {
                     out.println("Comando non riconosciuto.");
                 }
+
+                out.println("Digita qui il comando: ");
+
             }
         } catch (IOException e) {
             System.out.println("Errore client: " + e.getMessage());
